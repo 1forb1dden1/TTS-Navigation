@@ -1,24 +1,23 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-
-import Tapper from "../Screens/Tapper";
 import Home from "../Screens/Home";
+import Tapper from "../Screens/Tapper";
 
 const screens = {
   Home: {
     screen: Home,
     navigationOptions: {
-      headerShown: false,
+      headerShown: true,
     },
   },
   Tapper: {
     screen: Tapper,
     navigationOptions: {
-      headerShown: false,
+      headerShown: true,
     },
   },
 };
 
-const homeStack = createStackNavigator(screens);
+const HomeStack = createStackNavigator(screens);
 
-export default createAppContainer(homeStack);
+export default createAppContainer(HomeStack);

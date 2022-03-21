@@ -1,39 +1,31 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, Pressable } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import { colors } from "../constants/color";
-import * as Speech from "expo-speech";
+import TTSNavigator from "../components/TTSNavigator";
 
-const Home = (props) => {
-  
-  const pressHandler = () => {
-    const TTS = "This app is built for blind people";
-    Speech.isSpeakingAsync().then((speaking) => {
-      if (!speaking) {
-        Speech.speak(TTS, {
-          onDone: () => props.navigation.navigate("Tapper"),
-        });
-      }
-    });
-  };
+export default function Home({ navigation }) {
+  const Message =
+    "We are now on the home screen. This app is developed for the purpose of collecting data.";
 
   return (
-    <Pressable style={styles.container} onPress={pressHandler}>
-      <Text style={styles.text}>Home Screen</Text>
-    </Pressable>
+    <View style={styles.container}>
+      <TTSNavigator
+        style={styles.container}
+        text={Message}
+        file={"Tapper"}
+        navigation={navigation}
+      />
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.black,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: colors.gray,
   },
   text: {
-    color: colors.white,
+    color: colors.black,
     fontSize: 30,
   },
 });
-
-export default Home;

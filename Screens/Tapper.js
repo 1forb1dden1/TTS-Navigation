@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Pressable, Button } from "react-native";
+import { StyleSheet, View, Text, Button } from "react-native";
 import { colors } from "../constants/color";
-import * as Speech from "expo-speech";
 
 const Tapper = (props) => {
   const [tapped, setTapped] = useState(0);
   const { title = "Tap This" } = props;
 
   return (
-    <Pressable style={styles.container} onPress={() => setTapped(1)}>
-      <Text style={styles.text}>{title}</Text>
+    <View style={styles.container}>
+      <Button title={title} onPress={() => setTapped(tapped + 1)}></Button>
       <Text style={styles.text}>{tapped}</Text>
-    </Pressable>
+    </View>
   );
 };
 
@@ -24,11 +23,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: colors.black,
+    backgroundColor: colors.ghostwhite,
   },
   text: {
     fontSize: 30,
-    color: colors.white,
+    color: colors.black,
   },
 });
 

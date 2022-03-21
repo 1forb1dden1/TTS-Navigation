@@ -1,10 +1,15 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { colors } from "./constants/color";
-import Navigator from "./routes/homeStack";
+import { NavigationContainer } from "@react-navigation/native";
+import Navigator from "./routes/HomeStack";
 
 export default function App() {
-  return <Navigator />;
+  return (
+    <NavigationContainer>
+      <Navigator/>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
